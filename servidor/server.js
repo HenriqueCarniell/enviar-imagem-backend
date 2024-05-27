@@ -6,6 +6,8 @@ const multer = require('multer');
 
 const upload = multer({storage: storage})
 
+app.use("/files", express.static("uploads"))
+
 app.post("/upload", upload.single('file'), (req,res) => {
     return res.json(req.file.filename)
 })
